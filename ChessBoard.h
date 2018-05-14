@@ -14,8 +14,8 @@ public:
     ChessBoard(ChessBoard&)=delete;
     ChessTile**& operator[](int);
     void fillBoard();
-    // int getN();
-    // int getM();
+    int getN();
+    int getM();
     ~ChessBoard();
 };
 

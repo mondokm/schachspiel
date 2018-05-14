@@ -24,8 +24,15 @@ void ChessBoard::fillBoard(){
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             arr[i][j]=new ChessTile((i+j)%2==0?ChessTile::WHITE:ChessTile::BLACK);
-            arr[i][j]->set_size_request(20,20);
             attach(*arr[i][j],j,i,1,1);
         }
     }
+}
+
+int ChessBoard::getN(){
+    return n;
+}
+
+int ChessBoard::getM(){
+    return m;
 }
