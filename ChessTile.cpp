@@ -3,6 +3,10 @@
 #include <gtkmm.h>
 
 ChessTile::ChessTile(ChessTile::Colour colour, int row, int column):colour(colour), row(row), column(column), figure(nullptr){
+    resetColour();
+}
+
+void ChessTile::resetColour(){
     Gdk::RGBA color;
     color.set(colour==WHITE?"khaki":"saddlebrown");
     override_background_color(color);
@@ -10,9 +14,12 @@ ChessTile::ChessTile(ChessTile::Colour colour, int row, int column):colour(colou
 
 void ChessTile::setFigure(ChessFigure* fig){
     figure=fig;
-    Gtk::Image *im=Gtk::manage(new Gtk::Image());
-    im->set(fig->getPath());
-    set_image(*im);
+    if(fig==nullptr) removeFigure();
+    else{
+        Gtk::Image *im=Gtk::manage(new Gtk::Image());
+        im->set(fig->getPath());
+        set_image(*im);
+    }
 }
 
 void ChessTile::removeFigure(){

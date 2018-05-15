@@ -1,6 +1,7 @@
 #include "ChessBoard.h"
 #include "ChessTile.h"
 #include "ChessFigures.h"
+#include <set>
 
 ChessBoard::ChessBoard(int n, int m):n(n), m(m){
     set_row_homogeneous(true);
@@ -26,6 +27,7 @@ void ChessBoard::fillWithTiles(){
         for(int j=0;j<m;j++){
             arr[i][j]=new ChessTile((i+j)%2==0?ChessTile::WHITE:ChessTile::BLACK, i, j);
             attach(*arr[i][j],j,i,1,1);
+            arr[i][j]->signal_clicked().connect(sigc::bind<ChessTile*>(sigc::mem_fun(this, &ChessBoard::buttonClicked), arr[i][j]));
         }
     }
 }
@@ -74,4 +76,28 @@ int ChessBoard::getN(){
 
 int ChessBoard::getM(){
     return m;
+}
+
+void ChessBoard::buttonClicked(ChessTile* tile){
+    if(stepOptions.empty()){
+        if(tile->getFigure()==nullptr) return;
+        lastPressed=tile;
+        std::set<ChessTile*> steps=tile->getFigure()->getStepOptions(*this);
+        stepOptions.insert(steps.begin(),steps.end());
+        for(std::set<ChessTile*>::iterator it=steps.begin();it!=steps.end();it++){
+            Gdk::RGBA color;
+            color.set("yellow");
+            (*it)->override_background_color(color);
+        }
+    }
+    else{
+        if(stepOptions.find(tile)!=stepOptions.end()){
+            tile->setFigure(lastPressed->getFigure());
+            lastPressed->removeFigure();
+        }
+        for(std::set<ChessTile*>::iterator it=stepOptions.begin();it!=stepOptions.end();it++){
+            (*it)->resetColour();
+        }
+        stepOptions.clear();
+    }
 }

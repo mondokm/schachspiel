@@ -15,6 +15,7 @@ public:
     ChessTile(Colour, int, int);
     ChessTile(ChessTile&)=delete; 
     ChessTile& operator=(ChessFigure*);
+    void resetColour();
     Colour getColour();
     void setFigure(ChessFigure*);
     void removeFigure();

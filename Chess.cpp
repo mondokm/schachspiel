@@ -20,14 +20,14 @@ int main(int argc, char *argv[])
   window.add(board);
 
   board.fillBoard();
-  board[3][4]->setFigure(new Knight(ChessFigure::WHITE));
-  std::set<ChessTile*> steps=board[3][4]->getFigure()->getStepOptions(board);
-  for(std::set<ChessTile*>::iterator it=steps.begin();it!=steps.end();it++){
-    Gdk::RGBA color;
-    color.set("yellow");
-    (*it)->override_background_color(color);
+  // board[3][4]->setFigure(new Knight(ChessFigure::WHITE));
+  // std::set<ChessTile*> steps=board[3][4]->getFigure()->getStepOptions(board);
+  // for(std::set<ChessTile*>::iterator it=steps.begin();it!=steps.end();it++){
+  //   Gdk::RGBA color;
+  //   color.set("yellow");
+  //   (*it)->override_background_color(color);
     
-  }
+  // }
   // for(int i=0;i<4;i++){
   //   for(int j=0;j<8;j++){
   //     board[i][j]->setFigure(new Rook(ChessFigure::WHITE));

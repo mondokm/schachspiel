@@ -149,7 +149,7 @@ std::set<ChessTile*> DiagonalFigure::getDiagonalSteppingOptions(ChessBoard& boar
     }
 
     //Left-Down
-    border=std::min(dist,std::min(board.getN()-row-1,column-1));
+    border=std::min(dist,std::min(board.getN()-row-1,column));
     for(int i=1;i<=border;i++){
         if(board[row+i][column-i]->getFigure()==nullptr){
             steps.insert(board[row+i][column-i]);
@@ -161,7 +161,7 @@ std::set<ChessTile*> DiagonalFigure::getDiagonalSteppingOptions(ChessBoard& boar
     }
 
     //Right-Up
-    border=std::min(dist,std::min(row-1,board.getM()-column-1));
+    border=std::min(dist,std::min(row,board.getM()-column-1));
     for(int i=1;i<=border;i++){
         if(board[row-i][column+i]->getFigure()==nullptr){
             steps.insert(board[row-i][column+i]);
@@ -305,22 +305,22 @@ std::set<ChessTile*> Knight::getStepOptions(ChessBoard& board){
 
     if(row>=2){
         if(column>=1) if(board[row-2][column-1]->getFigure()==nullptr || board[row-2][column-1]->getFigure()->getTeam()!=team) steps.insert(board[row-2][column-1]);
-        if(column<=board.getM()-1) if(board[row-2][column+1]->getFigure()==nullptr  || board[row-2][column+1]->getFigure()->getTeam()!=team) steps.insert(board[row-2][column+1]);
+        if(column<=board.getM()-2) if(board[row-2][column+1]->getFigure()==nullptr  || board[row-2][column+1]->getFigure()->getTeam()!=team) steps.insert(board[row-2][column+1]);
     }
 
     if(row<=board.getN()-3){
         if(column>=1) if(board[row+2][column-1]->getFigure()==nullptr || board[row+2][column-1]->getFigure()->getTeam()!=team) steps.insert(board[row+2][column-1]);
-        if(column<=board.getM()-1) if(board[row+2][column+1]->getFigure()==nullptr || board[row+2][column+1]->getFigure()->getTeam()!=team) steps.insert(board[row+2][column+1]);
+        if(column<=board.getM()-2) if(board[row+2][column+1]->getFigure()==nullptr || board[row+2][column+1]->getFigure()->getTeam()!=team) steps.insert(board[row+2][column+1]);
     }
 
     if(column>=2){
         if(row>=1) if(board[row-1][column-2]->getFigure()==nullptr || board[row-1][column-2]->getFigure()->getTeam()!=team) steps.insert(board[row-1][column-2]);
-        if(row<=board.getN()-1) if(board[row-1][column+2]->getFigure()==nullptr  || board[row-1][column+2]->getFigure()->getTeam()!=team) steps.insert(board[row-1][column+2]);
+        if(row<=board.getN()-2) if(board[row+1][column-2]->getFigure()==nullptr || board[row+1][column-2]->getFigure()->getTeam()!=team) steps.insert(board[row+1][column-2]);
     }
 
     if(column<=board.getM()-3){
-        if(row>=1) if(board[row+1][column-2]->getFigure()==nullptr || board[row+1][column-2]->getFigure()->getTeam()!=team) steps.insert(board[row+1][column-2]);
-        if(row<=board.getN()-1) if(board[row+1][column+2]->getFigure()==nullptr || board[row+1][column+2]->getFigure()->getTeam()!=team) steps.insert(board[row+1][column+2]);
+        if(row>=1) if(board[row-1][column+2]->getFigure()==nullptr || board[row-1][column+2]->getFigure()->getTeam()!=team) steps.insert(board[row-1][column+2]);
+        if(row<=board.getN()-2) if(board[row+1][column+2]->getFigure()==nullptr || board[row+1][column+2]->getFigure()->getTeam()!=team) steps.insert(board[row+1][column+2]);
     }
 
     return steps;
