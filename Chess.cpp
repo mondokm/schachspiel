@@ -3,6 +3,7 @@
 #include "ChessBoard.h"
 #include "ChessFigures.h"
 #include "ChessTile.h"
+#include <set>
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +20,13 @@ int main(int argc, char *argv[])
   window.add(board);
 
   board.fillBoard();
-
+  std::set<ChessTile*> steps=board[7][3]->getFigure()->getStepOptions(board);
+  for(std::set<ChessTile*>::iterator it=steps.begin();it!=steps.end();it++){
+    Gdk::RGBA color;
+    color.set("yellow");
+    (*it)->override_background_color(color);
+    
+  }
   // for(int i=0;i<4;i++){
   //   for(int j=0;j<8;j++){
   //     board[i][j]->setFigure(new Rook(ChessFigure::WHITE));

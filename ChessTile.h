@@ -2,7 +2,7 @@
 #define CHESSTILE_H
 
 #include <gtkmm.h>
-#include "ChessFigures.h"
+class ChessFigure;
 
 class ChessTile: public Gtk::Button{
 public:
@@ -10,13 +10,16 @@ public:
 private:
     ChessFigure* figure;
     Colour colour;
+    int row, column;
 public:
-    ChessTile(Colour);
+    ChessTile(Colour, int, int);
     ChessTile(ChessTile&)=delete; 
     ChessTile& operator=(ChessFigure*);
     Colour getColour();
     void setFigure(ChessFigure*);
     void removeFigure();
+    int getRow();
+    int getColumn();
     ChessFigure* getFigure(); 
     ~ChessTile();
 };

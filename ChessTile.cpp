@@ -1,7 +1,8 @@
 #include "ChessTile.h"
+#include "ChessFigures.h"
 #include <gtkmm.h>
 
-ChessTile::ChessTile(ChessTile::Colour colour):colour(colour){
+ChessTile::ChessTile(ChessTile::Colour colour, int row, int column):colour(colour), row(row), column(column), figure(nullptr){
     Gdk::RGBA color;
     color.set(colour==WHITE?"khaki":"saddlebrown");
     override_background_color(color);
@@ -15,8 +16,17 @@ void ChessTile::setFigure(ChessFigure* fig){
 }
 
 void ChessTile::removeFigure(){
+    figure=nullptr;
     Gtk::Image *im=Gtk::manage(new Gtk::Image());
     set_image(*im);
+}
+
+int ChessTile::getRow(){
+    return row;
+}
+
+int ChessTile::getColumn(){
+    return column;
 }
 
 ChessFigure* ChessTile::getFigure(){

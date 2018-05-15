@@ -1,5 +1,6 @@
 #include "ChessBoard.h"
 #include "ChessTile.h"
+#include "ChessFigures.h"
 
 ChessBoard::ChessBoard(int n, int m):n(n), m(m){
     set_row_homogeneous(true);
@@ -23,7 +24,7 @@ ChessTile**& ChessBoard::operator[](int n){
 void ChessBoard::fillWithTiles(){
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
-            arr[i][j]=new ChessTile((i+j)%2==0?ChessTile::WHITE:ChessTile::BLACK);
+            arr[i][j]=new ChessTile((i+j)%2==0?ChessTile::WHITE:ChessTile::BLACK, i, j);
             attach(*arr[i][j],j,i,1,1);
         }
     }
@@ -61,10 +62,10 @@ void ChessBoard::fillBoard(){
     //Pawns
     for(int i=0;i<m;i++) arr[1][i]->setFigure(new Pawn(ChessFigure::BLACK));
     for(int i=0;i<m;i++) arr[n-2][i]->setFigure(new Pawn(ChessFigure::WHITE));
-    for(int i=1;i<kingColumn-3;i++) arr[1][i]->setFigure(new Pawn(ChessFigure::BLACK));
-    for(int i=1;i<kingColumn-3;i++) arr[1][i]->setFigure(new Pawn(ChessFigure::WHITE));
-    for(int i=kingColumn+4;i<m-2;i++) arr[1][i]->setFigure(new Pawn(ChessFigure::BLACK));
-    for(int i=kingColumn+4;i<m-2;i++) arr[1][i]->setFigure(new Pawn(ChessFigure::WHITE));
+    for(int i=1;i<kingColumn-2;i++) arr[0][i]->setFigure(new Pawn(ChessFigure::BLACK));
+    for(int i=1;i<kingColumn-2;i++) arr[n-1][i]->setFigure(new Pawn(ChessFigure::WHITE));
+    for(int i=kingColumn+4;i<m-1;i++) arr[0][i]->setFigure(new Pawn(ChessFigure::BLACK));
+    for(int i=kingColumn+4;i<m-1;i++) arr[n-1][i]->setFigure(new Pawn(ChessFigure::WHITE));
 }
 
 int ChessBoard::getN(){

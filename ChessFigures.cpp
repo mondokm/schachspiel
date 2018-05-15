@@ -1,4 +1,5 @@
 #include "ChessFigures.h"
+#include "ChessBoard.h"
 
 ChessFigure::ChessFigure(Team team):team(team){}
 
@@ -59,33 +60,140 @@ std::string Knight::getPath(){
     return team==WHITE?WHITE_KNIGHT_PATH:BLACK_KNIGHT_PATH;
 }
 
-std::set<ChessFigure*> King::getStepOptions(ChessBoard& ref){
-    std::set<ChessFigure*> steps;
+std::set<ChessTile*> StraightFigure::getHorizontalSteppingOptions(ChessBoard& board, int dist, int row, int column){
+    std::set<ChessTile*> steps;
+    
+    //Left
+    int border=0>(column-dist-1)?column-dist:0;
+    for(int j=column-1;j>border;j--){
+        if(board[row][j]->getFigure()==nullptr){
+            steps.insert(board[row][j]);
+        }
+        else{
+            steps.insert(board[row][j]);
+            break;
+        }
+    }
+
+    //Right
+    border=(board.getM()-1)<(column+dist+1)?board.getM()-1:column+dist+1;
+    for(int j=column+1;j<border;j++){
+        if(board[row][j]->getFigure()==nullptr){
+            steps.insert(board[row][j]);
+        }
+        else{
+            steps.insert(board[row][j]);
+            break;
+        }
+    }
+
     return steps;
 }
 
-std::set<ChessFigure*> Queen::getStepOptions(ChessBoard& ref){
-    std::set<ChessFigure*> steps;
+std::set<ChessTile*> StraightFigure::getVerticalSteppingOptions(ChessBoard& board, int dist, int row, int column){
+    std::set<ChessTile*> steps;
+    
+    //Up
+    int border=0>(row-dist-1)?row-dist:0;
+    for(int i=row-1;i>border;i--){
+        if(board[i][column]->getFigure()==nullptr){
+            steps.insert(board[i][column]);
+        }
+        else{
+            steps.insert(board[i][column]);
+            break;
+        }
+    }
+
+    //Down
+    border=(board.getN()-1)<(row+dist+1)?board.getN()-1:column+dist+1;
+    for(int i=row+1;i<border;i++){
+        if(board[i][column]->getFigure()==nullptr){
+            steps.insert(board[i][column]);
+        }
+        else{
+            steps.insert(board[i][column]);
+            break;
+        }
+    }
     return steps;
 }
 
-std::set<ChessFigure*> Pawn::getStepOptions(ChessBoard& ref){
-    std::set<ChessFigure*> steps;
+std::set<ChessTile*> DiagonalFigure::getDiagonalSteppingOptions(ChessBoard& board, int dist, int row, int column){
+    std::set<ChessTile*> steps;
+    
+    //Left-Up
+    int border=std::min(dist,std::min(row+1,column+1));
+    for(int i=1;i<border;i++){
+        if(board[row-i][column-i]->getFigure()==nullptr){
+            steps.insert(board[row-i][column-i]);
+        }
+        else{
+            steps.insert(board[row-i][column-i]);
+            break;
+        }
+    }
+
+    //Right-Down
+    border=std::min(dist,std::min(board.getN()-row,board.getM()-column));
+    for(int i=1;i<border;i++){
+        if(board[row+i][column+i]->getFigure()==nullptr){
+            steps.insert(board[row+i][column+i]);
+        }
+        else{
+            steps.insert(board[row+i][column+i]);
+            break;
+        }
+    }
+
+    return steps;
+
+}
+
+std::set<ChessTile*> King::getStepOptions(ChessBoard& board){
+    std::set<ChessTile*> steps;
+    int row=-1,column=-1;
+    for(int i=0;i<board.getN();i++){
+        for(int j=0;j<board.getM();j++){
+            if(board[i][j]->getFigure()==this){
+                row=i;
+                column=j;
+            }
+        }
+    }
+    if(row==-1) return steps;
+
+    std::set<ChessTile*> diagonalSteps=getDiagonalSteppingOptions(board,1, row, column);
+    steps.insert(diagonalSteps.begin(),diagonalSteps.end());
+    std::set<ChessTile*> horizontalSteps=getHorizontalSteppingOptions(board,1, row, column);
+    steps.insert(horizontalSteps.begin(),horizontalSteps.end());
+    std::set<ChessTile*> verticalSteps=getVerticalSteppingOptions(board,1, row, column);
+    steps.insert(verticalSteps.begin(),verticalSteps.end());
     return steps;
 }
 
-std::set<ChessFigure*> Bishop::getStepOptions(ChessBoard& ref){
-    std::set<ChessFigure*> steps;
+std::set<ChessTile*> Queen::getStepOptions(ChessBoard& board){
+    std::set<ChessTile*> steps;
     return steps;
 }
 
-std::set<ChessFigure*> Rook::getStepOptions(ChessBoard& ref){
-    std::set<ChessFigure*> steps;
+std::set<ChessTile*> Pawn::getStepOptions(ChessBoard& board){
+    std::set<ChessTile*> steps;
     return steps;
 }
 
-std::set<ChessFigure*> Knight::getStepOptions(ChessBoard& ref){
-    std::set<ChessFigure*> steps;
+std::set<ChessTile*> Bishop::getStepOptions(ChessBoard& board){
+    std::set<ChessTile*> steps;
+    return steps;
+}
+
+std::set<ChessTile*> Rook::getStepOptions(ChessBoard& board){
+    std::set<ChessTile*> steps;
+    return steps;
+}
+
+std::set<ChessTile*> Knight::getStepOptions(ChessBoard& board){
+    std::set<ChessTile*> steps;
     return steps;
 }
 

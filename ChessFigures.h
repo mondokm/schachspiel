@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include "ChessTile.h"
 
 class ChessBoard;
 
@@ -16,18 +17,18 @@ public:
     Team getTeam();
     virtual int getValue()=0;
     virtual std::string getPath()=0;
-    virtual std::set<ChessFigure*> getStepOptions(ChessBoard&)=0;    
+    virtual std::set<ChessTile*> getStepOptions(ChessBoard&)=0;    
 };
 
 class StraightFigure: virtual public ChessFigure{
 public:
-    std::set<ChessFigure*> getHorizontalSteppingOptions(ChessBoard&, int);
-    std::set<ChessFigure*> getVerticalSteppingOptions(ChessBoard&, int);
+    std::set<ChessTile*> getHorizontalSteppingOptions(ChessBoard&, int, int, int);
+    std::set<ChessTile*> getVerticalSteppingOptions(ChessBoard&, int, int, int);
 };
 
 class DiagonalFigure: virtual public ChessFigure{
 public:
-    std::set<ChessFigure*> getDiagonalSteppingOptions(ChessBoard&, int);
+    std::set<ChessTile*> getDiagonalSteppingOptions(ChessBoard&, int, int, int);
 };
  
 class King: virtual public StraightFigure, virtual public DiagonalFigure{
@@ -39,7 +40,7 @@ public:
     King(Team team);
     int getValue();
     std::string getPath();
-    std::set<ChessFigure*> getStepOptions(ChessBoard&);
+    std::set<ChessTile*> getStepOptions(ChessBoard&);
 };
 
 class Queen: virtual public StraightFigure, virtual public DiagonalFigure{
@@ -51,7 +52,7 @@ public:
     Queen(Team team);
     int getValue();
     std::string getPath();
-    std::set<ChessFigure*> getStepOptions(ChessBoard&);
+    std::set<ChessTile*> getStepOptions(ChessBoard&);
 };
 
 class Pawn: virtual public ChessFigure{
@@ -63,7 +64,7 @@ public:
     Pawn(Team team);
     int getValue();
     std::string getPath();
-    std::set<ChessFigure*> getStepOptions(ChessBoard&);
+    std::set<ChessTile*> getStepOptions(ChessBoard&);
 };
 
 class Bishop: virtual public DiagonalFigure{
@@ -75,7 +76,7 @@ public:
     Bishop(Team team);
     int getValue();
     std::string getPath();
-    std::set<ChessFigure*> getStepOptions(ChessBoard&);
+    std::set<ChessTile*> getStepOptions(ChessBoard&);
 };
 
 class Rook: virtual public StraightFigure{
@@ -87,7 +88,7 @@ public:
     Rook(Team team);
     int getValue();
     std::string getPath();
-    std::set<ChessFigure*> getStepOptions(ChessBoard&);
+    std::set<ChessTile*> getStepOptions(ChessBoard&);
 };
 
 class Knight: virtual public ChessFigure{
@@ -99,7 +100,7 @@ public:
     Knight(Team team);
     int getValue();
     std::string getPath();
-    std::set<ChessFigure*> getStepOptions(ChessBoard&);
+    std::set<ChessTile*> getStepOptions(ChessBoard&);
 };
 
 #endif
