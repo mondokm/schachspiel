@@ -108,7 +108,7 @@ std::set<ChessTile*> StraightFigure::getVerticalSteppingOptions(ChessBoard& boar
     }
 
     //Down
-    border=std::min(board.getN(),column+dist+1);
+    border=std::min(board.getN(),row+dist+1);
     for(int i=row+1;i<border;i++){
         if(board[i][column]->getFigure()==nullptr){
             steps.insert(board[i][column]);
@@ -189,11 +189,11 @@ std::set<ChessTile*> King::getStepOptions(ChessBoard& board){
     }
     if(row==-1) return steps;
 
-    std::set<ChessTile*> diagonalSteps=getDiagonalSteppingOptions(board,1, row, column);
+    std::set<ChessTile*> diagonalSteps=getDiagonalSteppingOptions(board, 1, row, column);
     steps.insert(diagonalSteps.begin(),diagonalSteps.end());
-    std::set<ChessTile*> horizontalSteps=getHorizontalSteppingOptions(board,1, row, column);
+    std::set<ChessTile*> horizontalSteps=getHorizontalSteppingOptions(board, 1, row, column);
     steps.insert(horizontalSteps.begin(),horizontalSteps.end());
-    std::set<ChessTile*> verticalSteps=getVerticalSteppingOptions(board,1, row, column);
+    std::set<ChessTile*> verticalSteps=getVerticalSteppingOptions(board, 1, row, column);
     steps.insert(verticalSteps.begin(),verticalSteps.end());
     return steps;
 }
