@@ -13,6 +13,7 @@ public:
     ChessBoard(int=8,int=8);
     ChessBoard(ChessBoard&)=delete;
     ChessTile**& operator[](int);
+    void fillWithTiles();
     void fillBoard();
     int getN();
     int getM();
