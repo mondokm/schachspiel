@@ -20,7 +20,8 @@ int main(int argc, char *argv[])
   window.add(board);
 
   board.fillBoard();
-  std::set<ChessTile*> steps=board[7][3]->getFigure()->getStepOptions(board);
+  board[2][4]->setFigure(new Pawn(ChessFigure::WHITE));
+  std::set<ChessTile*> steps=board[1][3]->getFigure()->getStepOptions(board);
   for(std::set<ChessTile*>::iterator it=steps.begin();it!=steps.end();it++){
     Gdk::RGBA color;
     color.set("yellow");
