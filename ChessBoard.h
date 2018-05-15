@@ -3,6 +3,7 @@
 
 #include <gtkmm.h>
 #include <set>
+#include "ChessFigures.h"
 
 class ChessTile;
 
@@ -11,6 +12,7 @@ private:
     ChessTile*** arr;
     std::set<ChessTile*> stepOptions;
     ChessTile* lastPressed;
+    ChessFigure::Team prevTeam=ChessFigure::BLACK;
     int n,m;
 public:
     ChessBoard(int=8,int=8);

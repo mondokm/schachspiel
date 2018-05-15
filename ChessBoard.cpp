@@ -2,6 +2,8 @@
 #include "ChessTile.h"
 #include "ChessFigures.h"
 #include <set>
+#include <string>
+#include <gtkmm.h>
 
 ChessBoard::ChessBoard(int n, int m):n(n), m(m){
     set_row_homogeneous(true);
@@ -33,7 +35,7 @@ void ChessBoard::fillWithTiles(){
 }
 
 void ChessBoard::fillBoard(){
-    int kingColumn=(int) (m-1)/2;
+    int queenColumn=(int) (m-1)/2;
 
     //Rooks
     arr[0][0]->setFigure(new Rook(ChessFigure::BLACK));
@@ -42,32 +44,32 @@ void ChessBoard::fillBoard(){
     arr[n-1][m-1]->setFigure(new Rook(ChessFigure::WHITE));
 
     //Bishops
-    arr[0][kingColumn-1]->setFigure(new Bishop(ChessFigure::BLACK));
-    arr[0][kingColumn+2]->setFigure(new Bishop(ChessFigure::BLACK));
-    arr[n-1][kingColumn-1]->setFigure(new Bishop(ChessFigure::WHITE));
-    arr[n-1][kingColumn+2]->setFigure(new Bishop(ChessFigure::WHITE));
+    arr[0][queenColumn-1]->setFigure(new Bishop(ChessFigure::BLACK));
+    arr[0][queenColumn+2]->setFigure(new Bishop(ChessFigure::BLACK));
+    arr[n-1][queenColumn-1]->setFigure(new Bishop(ChessFigure::WHITE));
+    arr[n-1][queenColumn+2]->setFigure(new Bishop(ChessFigure::WHITE));
 
     //Kings
-    arr[0][kingColumn]->setFigure(new King(ChessFigure::BLACK));
-    arr[n-1][kingColumn]->setFigure(new King(ChessFigure::WHITE));
+    arr[0][queenColumn+1]->setFigure(new King(ChessFigure::BLACK));
+    arr[n-1][queenColumn+1]->setFigure(new King(ChessFigure::WHITE));
 
     //Queens
-    arr[0][kingColumn+1]->setFigure(new Queen(ChessFigure::BLACK));
-    arr[n-1][kingColumn+1]->setFigure(new Queen(ChessFigure::WHITE));
+    arr[0][queenColumn]->setFigure(new Queen(ChessFigure::BLACK));
+    arr[n-1][queenColumn]->setFigure(new Queen(ChessFigure::WHITE));
     
     //Knights
-    arr[0][kingColumn-2]->setFigure(new Knight(ChessFigure::BLACK));
-    arr[0][kingColumn+3]->setFigure(new Knight(ChessFigure::BLACK));
-    arr[n-1][kingColumn-2]->setFigure(new Knight(ChessFigure::WHITE));
-    arr[n-1][kingColumn+3]->setFigure(new Knight(ChessFigure::WHITE));
+    arr[0][queenColumn-2]->setFigure(new Knight(ChessFigure::BLACK));
+    arr[0][queenColumn+3]->setFigure(new Knight(ChessFigure::BLACK));
+    arr[n-1][queenColumn-2]->setFigure(new Knight(ChessFigure::WHITE));
+    arr[n-1][queenColumn+3]->setFigure(new Knight(ChessFigure::WHITE));
 
     //Pawns
     for(int i=0;i<m;i++) arr[1][i]->setFigure(new Pawn(ChessFigure::BLACK));
     for(int i=0;i<m;i++) arr[n-2][i]->setFigure(new Pawn(ChessFigure::WHITE));
-    for(int i=1;i<kingColumn-2;i++) arr[0][i]->setFigure(new Pawn(ChessFigure::BLACK));
-    for(int i=1;i<kingColumn-2;i++) arr[n-1][i]->setFigure(new Pawn(ChessFigure::WHITE));
-    for(int i=kingColumn+4;i<m-1;i++) arr[0][i]->setFigure(new Pawn(ChessFigure::BLACK));
-    for(int i=kingColumn+4;i<m-1;i++) arr[n-1][i]->setFigure(new Pawn(ChessFigure::WHITE));
+    for(int i=1;i<queenColumn-2;i++) arr[0][i]->setFigure(new Pawn(ChessFigure::BLACK));
+    for(int i=1;i<queenColumn-2;i++) arr[n-1][i]->setFigure(new Pawn(ChessFigure::WHITE));
+    for(int i=queenColumn+4;i<m-1;i++) arr[0][i]->setFigure(new Pawn(ChessFigure::BLACK));
+    for(int i=queenColumn+4;i<m-1;i++) arr[n-1][i]->setFigure(new Pawn(ChessFigure::WHITE));
 }
 
 int ChessBoard::getN(){
@@ -81,6 +83,7 @@ int ChessBoard::getM(){
 void ChessBoard::buttonClicked(ChessTile* tile){
     if(stepOptions.empty()){
         if(tile->getFigure()==nullptr) return;
+        if(tile->getFigure()->getTeam()==prevTeam) return;
         lastPressed=tile;
         std::set<ChessTile*> steps=tile->getFigure()->getStepOptions(*this);
         stepOptions.insert(steps.begin(),steps.end());
@@ -92,8 +95,17 @@ void ChessBoard::buttonClicked(ChessTile* tile){
     }
     else{
         if(stepOptions.find(tile)!=stepOptions.end()){
+            if(dynamic_cast<King*>(tile->getFigure())!=nullptr){
+                std::string winner=tile->getFigure()->getTeam()==ChessFigure::BLACK?"white":"black";
+                Gtk::MessageDialog dialog((Gtk::Window&)(*this->get_toplevel()), "Winner!");
+                std::string text="The ";
+                dialog.set_secondary_text(text + winner + " player won the game.");
+                dialog.run();
+                Gtk::Main::quit();
+            }
             tile->setFigure(lastPressed->getFigure());
             lastPressed->removeFigure();
+            prevTeam=tile->getFigure()->getTeam();
         }
         for(std::set<ChessTile*>::iterator it=stepOptions.begin();it!=stepOptions.end();it++){
             (*it)->resetColour();

@@ -7,9 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-  auto app =
-    Gtk::Application::create(argc, argv,
-      "hu.mondokm.schachspiel");
+  auto app = Gtk::Application::create(argc, argv,"hu.mondokm.schachspiel");
 
   Gtk::Window window;
   window.set_default_size(200, 200);
