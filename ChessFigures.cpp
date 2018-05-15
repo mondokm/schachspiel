@@ -292,6 +292,37 @@ std::set<ChessTile*> Rook::getStepOptions(ChessBoard& board){
 
 std::set<ChessTile*> Knight::getStepOptions(ChessBoard& board){
     std::set<ChessTile*> steps;
+    int row=-1,column=-1;
+    for(int i=0;i<board.getN();i++){
+        for(int j=0;j<board.getM();j++){
+            if(board[i][j]->getFigure()==this){
+                row=i;
+                column=j;
+            }
+        }
+    }
+    if(row==-1) return steps;
+
+    if(row>=2){
+        if(column>=1) if(board[row-2][column-1]->getFigure()==nullptr || board[row-2][column-1]->getFigure()->getTeam()!=team) steps.insert(board[row-2][column-1]);
+        if(column<=board.getM()-1) if(board[row-2][column+1]->getFigure()==nullptr  || board[row-2][column+1]->getFigure()->getTeam()!=team) steps.insert(board[row-2][column+1]);
+    }
+
+    if(row<=board.getN()-3){
+        if(column>=1) if(board[row+2][column-1]->getFigure()==nullptr || board[row+2][column-1]->getFigure()->getTeam()!=team) steps.insert(board[row+2][column-1]);
+        if(column<=board.getM()-1) if(board[row+2][column+1]->getFigure()==nullptr || board[row+2][column+1]->getFigure()->getTeam()!=team) steps.insert(board[row+2][column+1]);
+    }
+
+    if(column>=2){
+        if(row>=1) if(board[row-1][column-2]->getFigure()==nullptr || board[row-1][column-2]->getFigure()->getTeam()!=team) steps.insert(board[row-1][column-2]);
+        if(row<=board.getN()-1) if(board[row-1][column+2]->getFigure()==nullptr  || board[row-1][column+2]->getFigure()->getTeam()!=team) steps.insert(board[row-1][column+2]);
+    }
+
+    if(column<=board.getM()-3){
+        if(row>=1) if(board[row+1][column-2]->getFigure()==nullptr || board[row+1][column-2]->getFigure()->getTeam()!=team) steps.insert(board[row+1][column-2]);
+        if(row<=board.getN()-1) if(board[row+1][column+2]->getFigure()==nullptr || board[row+1][column+2]->getFigure()->getTeam()!=team) steps.insert(board[row+1][column+2]);
+    }
+
     return steps;
 }
 

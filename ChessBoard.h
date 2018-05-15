@@ -8,6 +8,7 @@ class ChessTile;
 class ChessBoard: public Gtk::Grid{
 private:
     ChessTile*** arr;
+    std::set<ChessTile*> stepOptions;
     int n,m;
 public:
     ChessBoard(int=8,int=8);
@@ -15,6 +16,7 @@ public:
     ChessTile**& operator[](int);
     void fillWithTiles();
     void fillBoard();
+    void buttonClicked(ChessTile*);
     int getN();
     int getM();
     ~ChessBoard();
