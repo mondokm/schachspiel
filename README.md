@@ -25,7 +25,7 @@ Nach einem Klick auf einer Schachfigur werden die Trittmoeglichkeiten gelb gafae
 
 ## Regeln
 
-Der weißer Spieler fangt das Spiel an, die Spieler treten wechselweise. Rochade und Respawn sind schon nicht moeglich.
+Der weißer Spieler fangt das Spiel an, die Spieler treten wechselweise. Die Regeln sind die Regeln von Schach, außer dass Rochade und Respawn schon nicht moeglich sind.
 
 ### Ende des Spiels
 
