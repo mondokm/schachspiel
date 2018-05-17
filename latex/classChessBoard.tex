@@ -1,5 +1,14 @@
 \hypertarget{classChessBoard}{}\section{Chess\+Board Class Reference}
 \label{classChessBoard}\index{Chess\+Board@{Chess\+Board}}
+
+
+A class representing a chessboard.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Board.\+h$>$}
+
 Inheritance diagram for Chess\+Board\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,30 +18,52 @@ Inheritance diagram for Chess\+Board\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classChessBoard_ab905b19c4a54f58d3e9490ae058d50f3}\label{classChessBoard_ab905b19c4a54f58d3e9490ae058d50f3}} 
-{\bfseries Chess\+Board} (int=8, int=8)
-\item 
+\mbox{\hyperlink{classChessBoard_a1b745365065a0d4c7593589303ef4d76}{Chess\+Board}} (int rows=8, int columns=8)
+\begin{DoxyCompactList}\small\item\em A contructor expecting the number of rows and columns. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classChessBoard_aa52c65d2811e1b16f645968c7376e490}\label{classChessBoard_aa52c65d2811e1b16f645968c7376e490}} 
 {\bfseries Chess\+Board} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&)=delete
 \item 
 \mbox{\Hypertarget{classChessBoard_a5fef5d9dd63b08d21926fa357633d7a3}\label{classChessBoard_a5fef5d9dd63b08d21926fa357633d7a3}} 
-\mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$$\ast$\& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int)
-\item 
+\mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$$\ast$\& \mbox{\hyperlink{classChessBoard_a5fef5d9dd63b08d21926fa357633d7a3}{operator\mbox{[}$\,$\mbox{]}}} (int)
+\begin{DoxyCompactList}\small\item\em The Chess\+Tiles can be accessed using name\+Of\+Chess\+Board\mbox{[}row\mbox{]}\mbox{[}column\mbox{]}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classChessBoard_a7f2b454b63cad50b551a42995fe20b92}\label{classChessBoard_a7f2b454b63cad50b551a42995fe20b92}} 
-void {\bfseries fill\+With\+Tiles} ()
-\item 
+void \mbox{\hyperlink{classChessBoard_a7f2b454b63cad50b551a42995fe20b92}{fill\+With\+Tiles}} ()
+\begin{DoxyCompactList}\small\item\em Instantiates the tiles of the board. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classChessBoard_a104b758d5c28f2b31e12d34b467c37f5}\label{classChessBoard_a104b758d5c28f2b31e12d34b467c37f5}} 
-void {\bfseries fill\+Board} ()
-\item 
-\mbox{\Hypertarget{classChessBoard_a91e32cb7b5139c304d552a4148030033}\label{classChessBoard_a91e32cb7b5139c304d552a4148030033}} 
-void {\bfseries button\+Clicked} (\mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$)
-\item 
+void \mbox{\hyperlink{classChessBoard_a104b758d5c28f2b31e12d34b467c37f5}{fill\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Fills the board with figures. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classChessBoard_acc60486a0fafa95c85263e15e6b7f6ab}\label{classChessBoard_acc60486a0fafa95c85263e15e6b7f6ab}} 
-int {\bfseries getN} ()
-\item 
+int \mbox{\hyperlink{classChessBoard_acc60486a0fafa95c85263e15e6b7f6ab}{getN}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of rows the board has. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classChessBoard_a490cb74dc406003683738ab23372e66e}\label{classChessBoard_a490cb74dc406003683738ab23372e66e}} 
-int {\bfseries getM} ()
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{classChessBoard_a490cb74dc406003683738ab23372e66e}{getM}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of columns the board has. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChessBoard_acece8633f444b90d7b371b57f52d0780}\label{classChessBoard_acece8633f444b90d7b371b57f52d0780}} 
+\mbox{\hyperlink{classChessBoard_acece8633f444b90d7b371b57f52d0780}{$\sim$\+Chess\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class representing a chessboard. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChessBoard_a1b745365065a0d4c7593589303ef4d76}\label{classChessBoard_a1b745365065a0d4c7593589303ef4d76}} 
+\index{Chess\+Board@{Chess\+Board}!Chess\+Board@{Chess\+Board}}
+\index{Chess\+Board@{Chess\+Board}!Chess\+Board@{Chess\+Board}}
+\subsubsection{\texorpdfstring{Chess\+Board()}{ChessBoard()}}
+{\footnotesize\ttfamily Chess\+Board\+::\+Chess\+Board (\begin{DoxyParamCaption}\item[{int}]{rows = {\ttfamily 8},  }\item[{int}]{columns = {\ttfamily 8} }\end{DoxyParamCaption})}
+
+
+
+A contructor expecting the number of rows and columns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & The number of rows \\
+\hline
+{\em columns} & The number of columns \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

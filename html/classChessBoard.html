@@ -68,6 +68,11 @@ $(function() {
 <div class="title">ChessBoard Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class representing a chessboard.  
+ <a href="classChessBoard.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ChessBoard_8h_source.html">ChessBoard.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ChessBoard:</div>
 <div class="dyncontent">
@@ -79,31 +84,77 @@ Inheritance diagram for ChessBoard:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab905b19c4a54f58d3e9490ae058d50f3"><td class="memItemLeft" align="right" valign="top"><a id="ab905b19c4a54f58d3e9490ae058d50f3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ChessBoard</b> (int=8, int=8)</td></tr>
-<tr class="separator:ab905b19c4a54f58d3e9490ae058d50f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b745365065a0d4c7593589303ef4d76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#a1b745365065a0d4c7593589303ef4d76">ChessBoard</a> (int rows=8, int columns=8)</td></tr>
+<tr class="memdesc:a1b745365065a0d4c7593589303ef4d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">A contructor expecting the number of rows and columns.  <a href="#a1b745365065a0d4c7593589303ef4d76">More...</a><br /></td></tr>
+<tr class="separator:a1b745365065a0d4c7593589303ef4d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa52c65d2811e1b16f645968c7376e490"><td class="memItemLeft" align="right" valign="top"><a id="aa52c65d2811e1b16f645968c7376e490"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ChessBoard</b> (<a class="el" href="classChessBoard.html">ChessBoard</a> &amp;)=delete</td></tr>
 <tr class="separator:aa52c65d2811e1b16f645968c7376e490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fef5d9dd63b08d21926fa357633d7a3"><td class="memItemLeft" align="right" valign="top"><a id="a5fef5d9dd63b08d21926fa357633d7a3"></a>
-<a class="el" href="classChessTile.html">ChessTile</a> **&amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int)</td></tr>
+<a class="el" href="classChessTile.html">ChessTile</a> **&amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#a5fef5d9dd63b08d21926fa357633d7a3">operator[]</a> (int)</td></tr>
+<tr class="memdesc:a5fef5d9dd63b08d21926fa357633d7a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ChessTiles can be accessed using nameOfChessBoard[row][column]. <br /></td></tr>
 <tr class="separator:a5fef5d9dd63b08d21926fa357633d7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f2b454b63cad50b551a42995fe20b92"><td class="memItemLeft" align="right" valign="top"><a id="a7f2b454b63cad50b551a42995fe20b92"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillWithTiles</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#a7f2b454b63cad50b551a42995fe20b92">fillWithTiles</a> ()</td></tr>
+<tr class="memdesc:a7f2b454b63cad50b551a42995fe20b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates the tiles of the board. <br /></td></tr>
 <tr class="separator:a7f2b454b63cad50b551a42995fe20b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a104b758d5c28f2b31e12d34b467c37f5"><td class="memItemLeft" align="right" valign="top"><a id="a104b758d5c28f2b31e12d34b467c37f5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fillBoard</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#a104b758d5c28f2b31e12d34b467c37f5">fillBoard</a> ()</td></tr>
+<tr class="memdesc:a104b758d5c28f2b31e12d34b467c37f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the board with figures. <br /></td></tr>
 <tr class="separator:a104b758d5c28f2b31e12d34b467c37f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e32cb7b5139c304d552a4148030033"><td class="memItemLeft" align="right" valign="top"><a id="a91e32cb7b5139c304d552a4148030033"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buttonClicked</b> (<a class="el" href="classChessTile.html">ChessTile</a> *)</td></tr>
-<tr class="separator:a91e32cb7b5139c304d552a4148030033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc60486a0fafa95c85263e15e6b7f6ab"><td class="memItemLeft" align="right" valign="top"><a id="acc60486a0fafa95c85263e15e6b7f6ab"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getN</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#acc60486a0fafa95c85263e15e6b7f6ab">getN</a> ()</td></tr>
+<tr class="memdesc:acc60486a0fafa95c85263e15e6b7f6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of rows the board has. <br /></td></tr>
 <tr class="separator:acc60486a0fafa95c85263e15e6b7f6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a490cb74dc406003683738ab23372e66e"><td class="memItemLeft" align="right" valign="top"><a id="a490cb74dc406003683738ab23372e66e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getM</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#a490cb74dc406003683738ab23372e66e">getM</a> ()</td></tr>
+<tr class="memdesc:a490cb74dc406003683738ab23372e66e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of columns the board has. <br /></td></tr>
 <tr class="separator:a490cb74dc406003683738ab23372e66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acece8633f444b90d7b371b57f52d0780"><td class="memItemLeft" align="right" valign="top"><a id="acece8633f444b90d7b371b57f52d0780"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessBoard.html#acece8633f444b90d7b371b57f52d0780">~ChessBoard</a> ()</td></tr>
+<tr class="memdesc:acece8633f444b90d7b371b57f52d0780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:acece8633f444b90d7b371b57f52d0780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class representing a chessboard. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1b745365065a0d4c7593589303ef4d76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b745365065a0d4c7593589303ef4d76">&#9670;&nbsp;</a></span>ChessBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ChessBoard::ChessBoard </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rows</em> = <code>8</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>columns</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A contructor expecting the number of rows and columns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td>The number of rows </td></tr>
+    <tr><td class="paramname">columns</td><td>The number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ChessBoard_8h_source.html">ChessBoard.h</a></li>
 <li>src/ChessBoard.cpp</li>

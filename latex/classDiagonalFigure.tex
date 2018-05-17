@@ -1,5 +1,14 @@
 \hypertarget{classDiagonalFigure}{}\section{Diagonal\+Figure Class Reference}
 \label{classDiagonalFigure}\index{Diagonal\+Figure@{Diagonal\+Figure}}
+
+
+An abstract class that defines methods for stepping diagonally.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Figures.\+h$>$}
+
 Inheritance diagram for Diagonal\+Figure\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,10 +21,36 @@ Inheritance diagram for Diagonal\+Figure\+:\begin{figure}[H]
 \mbox{\Hypertarget{classDiagonalFigure_a6fee4161066f638dda40b16d0096487d}\label{classDiagonalFigure_a6fee4161066f638dda40b16d0096487d}} 
 virtual int \mbox{\hyperlink{classDiagonalFigure_a6fee4161066f638dda40b16d0096487d}{get\+Value}} ()=0
 \begin{DoxyCompactList}\small\item\em A getter function for the value of the figure (an AI can use it for weighting the figures) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classDiagonalFigure_a95b5c28c86337d7d6b034aadd09c9d2b}\label{classDiagonalFigure_a95b5c28c86337d7d6b034aadd09c9d2b}} 
-std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ {\bfseries get\+Diagonal\+Stepping\+Options} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&, int, int, int)
-\end{DoxyCompactItemize}
+std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ \mbox{\hyperlink{classDiagonalFigure_a95b5c28c86337d7d6b034aadd09c9d2b}{get\+Diagonal\+Stepping\+Options}} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&, int, int, int)
+\begin{DoxyCompactList}\small\item\em A function that returns a set containing the diagonal stepping options for the figure. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An abstract class that defines methods for stepping diagonally. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDiagonalFigure_a95b5c28c86337d7d6b034aadd09c9d2b}\label{classDiagonalFigure_a95b5c28c86337d7d6b034aadd09c9d2b}} 
+\index{Diagonal\+Figure@{Diagonal\+Figure}!get\+Diagonal\+Stepping\+Options@{get\+Diagonal\+Stepping\+Options}}
+\index{get\+Diagonal\+Stepping\+Options@{get\+Diagonal\+Stepping\+Options}!Diagonal\+Figure@{Diagonal\+Figure}}
+\subsubsection{\texorpdfstring{get\+Diagonal\+Stepping\+Options()}{getDiagonalSteppingOptions()}}
+{\footnotesize\ttfamily std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ Diagonal\+Figure\+::get\+Diagonal\+Stepping\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&}]{board,  }\item[{int}]{dist,  }\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption})}
+
+
+
+A function that returns a set containing the diagonal stepping options for the figure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & The board that the figure is placed on \\
+\hline
+{\em distance} & How far away the figure is allowed to step \\
+\hline
+{\em row} & The row the figure is placed in (starts from 0) \\
+\hline
+{\em column} & The column the figure is placed in (starts from 0) \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

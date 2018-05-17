@@ -1,0 +1,1 @@
+Ein einfaches graphisches Scachspielprogramm fuer zwei Spieler.

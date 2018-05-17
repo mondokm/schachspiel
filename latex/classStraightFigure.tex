@@ -2,7 +2,7 @@
 \label{classStraightFigure}\index{Straight\+Figure@{Straight\+Figure}}
 
 
-An.  
+An abstract class that defines methods for stepping horizontally and vertically.  
 
 
 
@@ -21,17 +21,60 @@ Inheritance diagram for Straight\+Figure\+:\begin{figure}[H]
 \mbox{\Hypertarget{classStraightFigure_a09d46ae2b3f043b9ac3e05ed6d95d420}\label{classStraightFigure_a09d46ae2b3f043b9ac3e05ed6d95d420}} 
 virtual int \mbox{\hyperlink{classStraightFigure_a09d46ae2b3f043b9ac3e05ed6d95d420}{get\+Value}} ()=0
 \begin{DoxyCompactList}\small\item\em A getter function for the value of the figure (an AI can use it for weighting the figures) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classStraightFigure_ac466b7394b41a10c582c9f363e907494}\label{classStraightFigure_ac466b7394b41a10c582c9f363e907494}} 
-std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ {\bfseries get\+Horizontal\+Stepping\+Options} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&, int, int, int)
-\item 
-\mbox{\Hypertarget{classStraightFigure_a9d0fd89679a129342adef0fd64c31dfa}\label{classStraightFigure_a9d0fd89679a129342adef0fd64c31dfa}} 
-std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ {\bfseries get\+Vertical\+Stepping\+Options} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&, int, int, int)
-\end{DoxyCompactItemize}
+std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ \mbox{\hyperlink{classStraightFigure_a847f8e60c70570c2156a36eb488927f5}{get\+Horizontal\+Stepping\+Options}} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&board, int distance, int row, int column)
+\begin{DoxyCompactList}\small\item\em A function that returns a set containing the horizontal stepping options for the figure. \end{DoxyCompactList}\item 
+std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ \mbox{\hyperlink{classStraightFigure_ae60af36598f16a5bbb01e56485625563}{get\+Vertical\+Stepping\+Options}} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&board, int distance, int row, int column)
+\begin{DoxyCompactList}\small\item\em A function that returns a set containing the vertical stepping options for the figure. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-An. 
+An abstract class that defines methods for stepping horizontally and vertically. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classStraightFigure_a847f8e60c70570c2156a36eb488927f5}\label{classStraightFigure_a847f8e60c70570c2156a36eb488927f5}} 
+\index{Straight\+Figure@{Straight\+Figure}!get\+Horizontal\+Stepping\+Options@{get\+Horizontal\+Stepping\+Options}}
+\index{get\+Horizontal\+Stepping\+Options@{get\+Horizontal\+Stepping\+Options}!Straight\+Figure@{Straight\+Figure}}
+\subsubsection{\texorpdfstring{get\+Horizontal\+Stepping\+Options()}{getHorizontalSteppingOptions()}}
+{\footnotesize\ttfamily std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ Straight\+Figure\+::get\+Horizontal\+Stepping\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&}]{board,  }\item[{int}]{distance,  }\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption})}
+
+
+
+A function that returns a set containing the horizontal stepping options for the figure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & The board that the figure is placed on \\
+\hline
+{\em distance} & How far away the figure is allowed to step \\
+\hline
+{\em row} & The row the figure is placed in (starts from 0) \\
+\hline
+{\em column} & The column the figure is placed in (starts from 0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStraightFigure_ae60af36598f16a5bbb01e56485625563}\label{classStraightFigure_ae60af36598f16a5bbb01e56485625563}} 
+\index{Straight\+Figure@{Straight\+Figure}!get\+Vertical\+Stepping\+Options@{get\+Vertical\+Stepping\+Options}}
+\index{get\+Vertical\+Stepping\+Options@{get\+Vertical\+Stepping\+Options}!Straight\+Figure@{Straight\+Figure}}
+\subsubsection{\texorpdfstring{get\+Vertical\+Stepping\+Options()}{getVerticalSteppingOptions()}}
+{\footnotesize\ttfamily std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ Straight\+Figure\+::get\+Vertical\+Stepping\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&}]{board,  }\item[{int}]{distance,  }\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption})}
+
+
+
+A function that returns a set containing the vertical stepping options for the figure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & The board that the figure is placed on \\
+\hline
+{\em distance} & How far away the figure is allowed to step \\
+\hline
+{\em row} & The row the figure is placed in (starts from 0) \\
+\hline
+{\em column} & The column the figure is placed in (starts from 0) \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

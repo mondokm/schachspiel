@@ -52,97 +52,172 @@ public:
   /** \brief A function that returns a set containing the horizontal stepping options for the figure
    * @param board The board that the figure is placed on
    * @param distance How far away the figure is allowed to step
-   * @param row The 
+   * @param row The row the figure is placed in (starts from 0)
+   * @param column The column the figure is placed in (starts from 0)
    */
   std::set<ChessTile *> getHorizontalSteppingOptions(ChessBoard &board, int distance, int row, int column);
+  /** \brief A function that returns a set containing the vertical stepping options for the figure
+   * @param board The board that the figure is placed on
+   * @param distance How far away the figure is allowed to step
+   * @param row The row the figure is placed in (starts from 0)
+   * @param column The column the figure is placed in (starts from 0)
+   */
   std::set<ChessTile *> getVerticalSteppingOptions(ChessBoard &board, int distance, int row, int column);
 };
 
+/** \brief An abstract class that defines methods for stepping diagonally
+ */
 class DiagonalFigure : virtual public ChessFigure
 {
 public:
   virtual int getValue() = 0;
+  /** \brief A function that returns a set containing the diagonal stepping options for the figure
+   * @param board The board that the figure is placed on
+   * @param distance How far away the figure is allowed to step
+   * @param row The row the figure is placed in (starts from 0)
+   * @param column The column the figure is placed in (starts from 0)
+   */
   std::set<ChessTile *> getDiagonalSteppingOptions(ChessBoard &, int, int, int);
 };
 
+/** \brief A class that represents king figures
+ */
 class King : virtual public StraightFigure, virtual public DiagonalFigure
 {
 private:
+  /** \brief The value of the figure
+  */
   static const int KING_VALUE;
+  /** \brief The path to the black image file
+  */
   static const std::string BLACK_KING_PATH;
+  /** \brief The path to the white image file
+  */
   static const std::string WHITE_KING_PATH;
 
 public:
+  /** \brief A constructor expecting a Team
+  */
   King(Team team);
   int getValue();
   std::string getPath();
   std::set<ChessTile *> getStepOptions(ChessBoard &);
 };
 
+/** \brief A class that represents queen figures
+  */
 class Queen : virtual public StraightFigure, virtual public DiagonalFigure
 {
 private:
+  /** \brief The value of the figure
+  */
   static const int QUEEN_VALUE;
+  /** \brief The path to the black image file
+  */
   static const std::string BLACK_QUEEN_PATH;
+  /** \brief The path to the white image file
+  */
   static const std::string WHITE_QUEEN_PATH;
 
 public:
+  /** \brief A constructor expecting a Team
+  */
   Queen(Team team);
   int getValue();
   std::string getPath();
   std::set<ChessTile *> getStepOptions(ChessBoard &);
 };
 
+/** \brief A class that represents pawn figures
+*/
 class Pawn : virtual public ChessFigure
 {
 private:
+  /** \brief The value of the figure
+  */
   static const int PAWN_VALUE;
+  /** \brief The path to the black image file
+  */
   static const std::string BLACK_PAWN_PATH;
+  /** \brief The path to the white image file
+  */
   static const std::string WHITE_PAWN_PATH;
 
 public:
+  /** \brief A constructor expecting a Team
+  */
   Pawn(Team team);
   int getValue();
   std::string getPath();
   std::set<ChessTile *> getStepOptions(ChessBoard &);
 };
 
+/** \brief A class that represents bishop figures
+*/
 class Bishop : virtual public DiagonalFigure
 {
 private:
+  /** \brief The value of the figure
+  */
   static const int BISHOP_VALUE;
+  /** \brief The path to the black image file
+  */
   static const std::string BLACK_BISHOP_PATH;
+  /** \brief The path to the white image file
+  */
   static const std::string WHITE_BISHOP_PATH;
 
 public:
+  /** \brief A constructor expecting a Team
+  */
   Bishop(Team team);
   int getValue();
   std::string getPath();
   std::set<ChessTile *> getStepOptions(ChessBoard &);
 };
 
+/** \brief A class that represents bishop figures
+*/
 class Rook : virtual public StraightFigure
 {
 private:
+  /** \brief The value of the figure
+  */
   static const int ROOK_VALUE;
+  /** \brief The path to the black image file
+  */
   static const std::string BLACK_ROOK_PATH;
+  /** \brief The path to the white image file
+  */
   static const std::string WHITE_ROOK_PATH;
 
 public:
+  /** \brief A constructor expecting a Team
+  */
   Rook(Team team);
   int getValue();
   std::string getPath();
   std::set<ChessTile *> getStepOptions(ChessBoard &);
 };
 
+/** \brief A class that represents knight figures
+*/
 class Knight : virtual public ChessFigure
 {
 private:
+  /** \brief The value of the figure
+  */
   static const int KNIGHT_VALUE;
+  /** \brief The path to the black image file
+  */
   static const std::string BLACK_KNIGHT_PATH;
+  /** \brief The path to the white image file
+  */
   static const std::string WHITE_KNIGHT_PATH;
 
 public:
+  /** \brief A constructor expecting a Team
+  */
   Knight(Team team);
   int getValue();
   std::string getPath();

@@ -5,7 +5,7 @@
 #include <string>
 #include <gtkmm.h>
 
-ChessBoard::ChessBoard(int n, int m) : n(n), m(m)
+ChessBoard::ChessBoard(int n, int m) : n(n >= 8 ? n : 8), m(m >= 8 ? n : 8)
 {
     set_row_homogeneous(true);
     set_column_homogeneous(true);
@@ -36,7 +36,7 @@ void ChessBoard::fillWithTiles()
     {
         for (int j = 0; j < m; j++)
         {
-            arr[i][j] = new ChessTile((i + j) % 2 == 0 ? ChessTile::WHITE : ChessTile::BLACK, i, j);
+            arr[i][j] = new ChessTile((i + j) % 2 == 0 ? ChessTile::WHITE : ChessTile::BLACK);
             attach(*arr[i][j], j, i, 1, 1);
             arr[i][j]->signal_clicked().connect(sigc::bind<ChessTile *>(sigc::mem_fun(this, &ChessBoard::buttonClicked), arr[i][j]));
         }

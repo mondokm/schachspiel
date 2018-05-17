@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['team',['Team',['../classChessFigure.html#a62f54318c1f28a08e6a6a2707f697a1d',1,'ChessFigure']]]
+  ['colour',['Colour',['../classChessTile.html#a9c573776c908586046e63facd4756e4d',1,'ChessTile']]]
 ];

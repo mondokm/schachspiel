@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['chessfigure',['ChessFigure',['../classChessFigure.html#a09347f3c6276fc99ec111e44d2095c88',1,'ChessFigure']]]
+  ['bishop',['Bishop',['../classBishop.html#a8e41c7d03936f10f1d7f78bb9b3a8b34',1,'Bishop']]]
 ];

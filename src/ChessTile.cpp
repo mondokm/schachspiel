@@ -2,7 +2,7 @@
 #include "ChessFigures.h"
 #include <gtkmm.h>
 
-ChessTile::ChessTile(ChessTile::Colour colour, int row, int column) : colour(colour), row(row), column(column), figure(nullptr)
+ChessTile::ChessTile(ChessTile::Colour colour) : colour(colour), figure(nullptr)
 {
     resetColour();
 }
@@ -34,16 +34,6 @@ void ChessTile::removeFigure()
     set_image(*im);
 }
 
-int ChessTile::getRow()
-{
-    return row;
-}
-
-int ChessTile::getColumn()
-{
-    return column;
-}
-
 ChessFigure *ChessTile::getFigure()
 {
     return figure;
@@ -51,7 +41,7 @@ ChessFigure *ChessTile::getFigure()
 
 ChessTile &ChessTile::operator=(ChessFigure *fig)
 {
-    figure = fig;
+    setFigure(fig);
     return *this;
 }
 

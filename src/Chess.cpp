@@ -1,3 +1,6 @@
+/** \file
+*/
+
 #include <gtkmm.h>
 #include <iostream>
 #include "ChessBoard.h"
@@ -8,32 +11,30 @@
 /// The main function of the program
 int main(int argc, char *argv[])
 {
+  /// Creating a Gtk Application instance
   auto app = Gtk::Application::create(argc, argv, "hu.mondokm.schachspiel");
 
+  /// Creating a window instance
   Gtk::Window window;
+
+  /// Setting the size of the window
   window.set_default_size(200, 200);
 
+  /// Creating a ChessBoard instance
   ChessBoard board(8, 8);
+
+  /// Filling the board with tiles
   board.fillWithTiles();
+
+  /// Filling the board with figures
+  board.fillBoard();
+
+  /// Adding the board to the window
   window.add(board);
 
-  board.fillBoard();
-  // board[3][4]->setFigure(new Knight(ChessFigure::WHITE));
-  // std::set<ChessTile*> steps=board[3][4]->getFigure()->getStepOptions(board);
-  // for(std::set<ChessTile*>::iterator it=steps.begin();it!=steps.end();it++){
-  //   Gdk::RGBA color;
-  //   color.set("yellow");
-  //   (*it)->override_background_color(color);
-
-  // }
-  // for(int i=0;i<4;i++){
-  //   for(int j=0;j<8;j++){
-  //     board[i][j]->setFigure(new Rook(ChessFigure::WHITE));
-  //   }
-  // }
-  // board[0][0]->removeFigure();
-
+  /// Asking the window to show all its children
   window.show_all_children();
 
+  /// Running the application
   return app->run(window);
 }

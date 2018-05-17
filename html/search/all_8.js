@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['straightfigure',['StraightFigure',['../classStraightFigure.html',1,'']]]
+  ['pawn',['Pawn',['../classPawn.html',1,'Pawn'],['../classPawn.html#ab800634302e5af17a3d37cfe23f4cf15',1,'Pawn::Pawn()']]]
 ];
