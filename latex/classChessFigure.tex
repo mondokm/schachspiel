@@ -1,0 +1,96 @@
+\hypertarget{classChessFigure}{}\section{Chess\+Figure Class Reference}
+\label{classChessFigure}\index{Chess\+Figure@{Chess\+Figure}}
+
+
+An abstract class that represents the chessfigures.  
+
+
+
+
+{\ttfamily \#include $<$Chess\+Figures.\+h$>$}
+
+Inheritance diagram for Chess\+Figure\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.616822cm]{classChessFigure}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}\label{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}} 
+enum \mbox{\hyperlink{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}{Team}} \{ {\bfseries W\+H\+I\+TE}, 
+{\bfseries B\+L\+A\+CK}
+ \}
+\begin{DoxyCompactList}\small\item\em An enum that can represent the team of the figure (white/black) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChessFigure_a09347f3c6276fc99ec111e44d2095c88}{Chess\+Figure}} (\mbox{\hyperlink{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}{Team}} \mbox{\hyperlink{classChessFigure_ac7d0751a28c94d49927b9524390d1261}{team}})
+\begin{DoxyCompactList}\small\item\em A contructor that expects the team of the figure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChessFigure_a7680676e4b3089ee8c0b1a424c71ec35}\label{classChessFigure_a7680676e4b3089ee8c0b1a424c71ec35}} 
+\mbox{\hyperlink{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}{Team}} \mbox{\hyperlink{classChessFigure_a7680676e4b3089ee8c0b1a424c71ec35}{get\+Team}} ()
+\begin{DoxyCompactList}\small\item\em A getter function for the team variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChessFigure_a5024e1c8c06e0e769c119de2d63a5ab8}\label{classChessFigure_a5024e1c8c06e0e769c119de2d63a5ab8}} 
+virtual int \mbox{\hyperlink{classChessFigure_a5024e1c8c06e0e769c119de2d63a5ab8}{get\+Value}} ()=0
+\begin{DoxyCompactList}\small\item\em A getter function for the value of the figure (an AI can use it for weighting the figures) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChessFigure_aa8eef5ce3812121d417499cc7ab8b0b1}\label{classChessFigure_aa8eef5ce3812121d417499cc7ab8b0b1}} 
+virtual std\+::string \mbox{\hyperlink{classChessFigure_aa8eef5ce3812121d417499cc7ab8b0b1}{get\+Path}} ()=0
+\begin{DoxyCompactList}\small\item\em The path to the image file of the figure. \end{DoxyCompactList}\item 
+virtual std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ \mbox{\hyperlink{classChessFigure_ae78d52e35c4ea926f492d211c69758bd}{get\+Step\+Options}} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&board)=0
+\begin{DoxyCompactList}\small\item\em A function that returns the available stepping options for the figure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChessFigure_ac7d0751a28c94d49927b9524390d1261}\label{classChessFigure_ac7d0751a28c94d49927b9524390d1261}} 
+\mbox{\hyperlink{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}{Team}} \mbox{\hyperlink{classChessFigure_ac7d0751a28c94d49927b9524390d1261}{team}}
+\begin{DoxyCompactList}\small\item\em The figure\textquotesingle{}s team. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract class that represents the chessfigures. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChessFigure_a09347f3c6276fc99ec111e44d2095c88}\label{classChessFigure_a09347f3c6276fc99ec111e44d2095c88}} 
+\index{Chess\+Figure@{Chess\+Figure}!Chess\+Figure@{Chess\+Figure}}
+\index{Chess\+Figure@{Chess\+Figure}!Chess\+Figure@{Chess\+Figure}}
+\subsubsection{\texorpdfstring{Chess\+Figure()}{ChessFigure()}}
+{\footnotesize\ttfamily Chess\+Figure\+::\+Chess\+Figure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}{Team}}}]{team }\end{DoxyParamCaption})}
+
+
+
+A contructor that expects the team of the figure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & the team of the figure \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classChessFigure_ae78d52e35c4ea926f492d211c69758bd}\label{classChessFigure_ae78d52e35c4ea926f492d211c69758bd}} 
+\index{Chess\+Figure@{Chess\+Figure}!get\+Step\+Options@{get\+Step\+Options}}
+\index{get\+Step\+Options@{get\+Step\+Options}!Chess\+Figure@{Chess\+Figure}}
+\subsubsection{\texorpdfstring{get\+Step\+Options()}{getStepOptions()}}
+{\footnotesize\ttfamily virtual std\+::set$<$\mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$$>$ Chess\+Figure\+::get\+Step\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&}]{board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A function that returns the available stepping options for the figure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & The \mbox{\hyperlink{classChessBoard}{Chess\+Board}} that the figure is placed on \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classKnight_abb638cd75748653ec35365a77d528c42}{Knight}}, \mbox{\hyperlink{classRook_a466f48269ca58857c2a1ab1ab92c91f8}{Rook}}, \mbox{\hyperlink{classBishop_a5da898db86a3025a5064d2d6ea2f1148}{Bishop}}, \mbox{\hyperlink{classPawn_aa05272b9dcf50914ca51c5be1fe2d014}{Pawn}}, \mbox{\hyperlink{classQueen_a0fe4b1feaa74c1b2879ce991771054b0}{Queen}}, and \mbox{\hyperlink{classKing_a69703f80ac8c30335e4d745ee11518d7}{King}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Chess\+Figures.\+h\item 
+src/Chess\+Figures.\+cpp\end{DoxyCompactItemize}

@@ -435,12 +435,12 @@ std::set<ChessTile *> Knight::getStepOptions(ChessBoard &board)
     return steps;
 }
 
-const int King::KING_VALUE = 2;
-const int Queen::QUEEN_VALUE = 1;
+const int King::KING_VALUE = 3;
+const int Queen::QUEEN_VALUE = 2;
 const int Pawn::PAWN_VALUE = 0;
-const int Bishop::BISHOP_VALUE = 0;
-const int Rook::ROOK_VALUE = 0;
-const int Knight::KNIGHT_VALUE = 0;
+const int Bishop::BISHOP_VALUE = 1;
+const int Rook::ROOK_VALUE = 1;
+const int Knight::KNIGHT_VALUE = 1;
 
 const std::string King::BLACK_KING_PATH = "res/BlackKing.png";
 const std::string Queen::BLACK_QUEEN_PATH = "res/BlackQueen.png";

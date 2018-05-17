@@ -1,32 +1,35 @@
-# Schachspiel
-
 Ein einfaches graphisches Scachspielprogramm fuer zwei Spieler.
 
-## Anforderungen
+\subsection*{Anforderungen}
 
-- Linux oder BSD basiertes System
-- Gtk
 
-## Installation
+\begin{DoxyItemize}
+\item Linux oder B\+SD basiertes System
+\item Gtk
+\end{DoxyItemize}
 
-```
+\subsection*{Installation}
+
+
+\begin{DoxyCode}
 git clone https://github.com/mondokm/schachspiel.git
 cd schachspiel
 make compile
-```
+\end{DoxyCode}
 
-## UI
+
+\subsection*{UI}
 
 Das Programm hat ein graphisches UI, das wie ein Schachbrett aussieht.
 
-![ui](docs/chess.png)
+
 
 Nach einem Klick auf einer Schachfigur werden die Trittmoeglichkeiten gelb gafaerbt. Falls der Spieler ein gelbes Feld klickt, wird der frueher ausgewaehlter Figur da treten, andernfalls wird der Auswahl zurueckgenommen.
 
-## Regeln
+\subsection*{Regeln}
 
 Der weißer Spieler fangt das Spiel an, die Spieler treten wechselweise. Die Regeln sind die Regeln von Schach, außer dass Rochade und Respawn schon nicht moeglich sind.
 
-### Ende des Spiels
+\subsubsection*{Ende des Spiels}
 
-Das Spiel endet, wenn eine der Spieler seinen König verliert.
+Das Spiel endet, wenn eine der Spieler seinen König verliert. 

@@ -1,0 +1,51 @@
+\hypertarget{classBishop}{}\section{Bishop Class Reference}
+\label{classBishop}\index{Bishop@{Bishop}}
+Inheritance diagram for Bishop\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classBishop}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBishop_a8e41c7d03936f10f1d7f78bb9b3a8b34}\label{classBishop_a8e41c7d03936f10f1d7f78bb9b3a8b34}} 
+{\bfseries Bishop} (\mbox{\hyperlink{classChessFigure_a62f54318c1f28a08e6a6a2707f697a1d}{Team}} \mbox{\hyperlink{classChessFigure_ac7d0751a28c94d49927b9524390d1261}{team}})
+\item 
+\mbox{\Hypertarget{classBishop_a7255af36858df3d5349a9ab815afa9a7}\label{classBishop_a7255af36858df3d5349a9ab815afa9a7}} 
+int \mbox{\hyperlink{classBishop_a7255af36858df3d5349a9ab815afa9a7}{get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em A getter function for the value of the figure (an AI can use it for weighting the figures) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBishop_af2345c750c316768d046b064e6328b40}\label{classBishop_af2345c750c316768d046b064e6328b40}} 
+std\+::string \mbox{\hyperlink{classBishop_af2345c750c316768d046b064e6328b40}{get\+Path}} ()
+\begin{DoxyCompactList}\small\item\em The path to the image file of the figure. \end{DoxyCompactList}\item 
+std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ \mbox{\hyperlink{classBishop_a5da898db86a3025a5064d2d6ea2f1148}{get\+Step\+Options}} (\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&)
+\begin{DoxyCompactList}\small\item\em A function that returns the available stepping options for the figure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBishop_a5da898db86a3025a5064d2d6ea2f1148}\label{classBishop_a5da898db86a3025a5064d2d6ea2f1148}} 
+\index{Bishop@{Bishop}!get\+Step\+Options@{get\+Step\+Options}}
+\index{get\+Step\+Options@{get\+Step\+Options}!Bishop@{Bishop}}
+\subsubsection{\texorpdfstring{get\+Step\+Options()}{getStepOptions()}}
+{\footnotesize\ttfamily std\+::set$<$ \mbox{\hyperlink{classChessTile}{Chess\+Tile}} $\ast$ $>$ Bishop\+::get\+Step\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChessBoard}{Chess\+Board}} \&}]{board }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+A function that returns the available stepping options for the figure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & The \mbox{\hyperlink{classChessBoard}{Chess\+Board}} that the figure is placed on \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChessFigure_ae78d52e35c4ea926f492d211c69758bd}{Chess\+Figure}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Chess\+Figures.\+h\item 
+src/Chess\+Figures.\+cpp\end{DoxyCompactItemize}

@@ -5,6 +5,7 @@
 #include "ChessTile.h"
 #include <set>
 
+/// The main function of the program
 int main(int argc, char *argv[])
 {
   auto app = Gtk::Application::create(argc, argv, "hu.mondokm.schachspiel");
